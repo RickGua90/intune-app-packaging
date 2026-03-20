@@ -11,6 +11,8 @@
     2. Executes the dotnet host to list active runtimes.
     3. Returns Exit 0 (Success) only if 8.0.24 is present AND no older versions 
        are detected as active, ensuring a clean environment.
+
+    # Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
 #>
 
 $TargetVersion = "8.0.24"
