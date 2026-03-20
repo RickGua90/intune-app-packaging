@@ -42,15 +42,22 @@ To replicate this deployment, place all installers and the script in your `Sourc
 .\IntuneWinAppUtil.exe -c .\Source -s dotnet_install.ps1 -o .\Output
 
 ### **Intune Deployment Configuration**
-Install Command: powershell.exe -ExecutionPolicy Bypass -File dotnet_install.ps1
+* Install Command: powershell.exe -ExecutionPolicy Bypass -File dotnet_install.ps1
 
-Uninstall Command: powershell.exe -ExecutionPolicy Bypass -Command "& { Get-Package -Name '*dotnet*' | Uninstall-Package -Force }"
+* Uninstall Command: powershell.exe -ExecutionPolicy Bypass -Command "& { Get-Package -Name '*dotnet*' | Uninstall-Package -Force }"
 
-Install Behavior: System
+* Install Behavior: System
 
-Detection Method: Custom Script (dotnet_detection.ps1)
+* Detection Method: Custom Script (dotnet_detection.ps1)
 
-Device Restart Behavior: App install may force a device restart
+* Device Restart Behavior: App install may force a device restart
 
 ### **Disclaimer**
 **READ BEFORE USE**: These scripts are provided for educational and testing purposes only. I hold no responsibility for system instability, broken functionality, or data loss in your environment. Always validate in a sandbox/testing group before production use.
+
+### **Deployment & Testing**
+Before deploying these scripts to your entire fleet, it is strongly recommended to use a dedicated Testing Group to validate the results on a small subset of devices.
+
+For a step by step guide on how to set up a group, please refer to my documentation here: https://github.com/RickGua90/How_To/blob/7aa316a7a7313245b0006747091482029fab9251/Create_or_delete_a_group_in_Intune.pdf
+
+For a step by step guide on how to Create/Edit a WinApp32 in Intune, please refer to my documentation here: https://github.com/RickGua90/How_To/blob/main/HowtoCreateEditaWinApp32inIntune.pdf
