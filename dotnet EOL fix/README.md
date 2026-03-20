@@ -15,10 +15,15 @@ To ensure consistent, repeatable builds, this project utilizes a structured loca
 Due to GitHub's 25MB file limit, the .exe installers are not hosted here. You must download the following installers directly from official Microsoft sources and place them in your \Source\ folder:
 
 dotnet-core-uninstall.msi from: https://github.com/dotnet/cli-lab/releases
+
 windowsdesktop-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us/download
+
 dotnet-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us/download
+
 aspnetcore-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us
+
 dotnet_install.ps1: The script provided in this repository.
+
 dotnet_detection.ps1: The script provided in this repository.
 
 ### If You download different versions from the 8.0.24, remember to amend the scripts provided!!
@@ -38,9 +43,13 @@ To replicate this deployment, place all installers and the script in your `Sourc
 
 ### **Intune Deployment Configuration**
 Install Command: powershell.exe -ExecutionPolicy Bypass -File dotnet_install.ps1
+
 Uninstall Command: powershell.exe -ExecutionPolicy Bypass -Command "& { Get-Package -Name '*dotnet*' | Uninstall-Package -Force }"
+
 Install Behavior: System
+
 Detection Method: Custom Script (dotnet_detection.ps1)
+
 Device Restart Behavior: App install may force a device restart
 
 ### **Disclaimer**
