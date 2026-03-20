@@ -12,6 +12,8 @@
        version is active before scrubbing.
     4. Scrub: Uses the Uninstall Tool to purge all versions below 8.0.24 and all x86 versions.
     5. Validation: Confirms only 8.0.24 remains active.
+
+    # Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
 #>
 
 # 1. Check if .NET exists at all on the machine
@@ -36,6 +38,7 @@ if (!(Test-Path $toolPath)) {
 }
 
 # 3. Install .NET 8.0.24 components first
+# Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
 Write-Host "Installing .NET 8.0.24 components..." -ForegroundColor Cyan
 $installers = @(
     "windowsdesktop-runtime-8.0.24-win-x64.exe",
@@ -53,6 +56,7 @@ foreach ($exe in $installers) {
 }
 
 # 4. Proceed with deleting old versions using the tool
+# Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
 if (Test-Path $toolPath) {
     Write-Host "Removing all versions below 8.0.24..." -ForegroundColor Yellow
     
@@ -72,6 +76,7 @@ if (Test-Path $toolPath) {
 }
 
 # 5. Final verification
+# Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
 $remaining = & dotnet --list-runtimes 2>$null | Where-Object { $_ -notlike "*8.0.24*" }
 if (!$remaining) {
     Write-Host "dotnet 8.0.24 is the only version left" -ForegroundColor Green
