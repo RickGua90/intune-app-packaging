@@ -14,17 +14,17 @@ To ensure consistent, repeatable builds, this project utilizes a structured loca
 ### **Source Folder Requirements**
 Due to GitHub's 25MB file limit, the .exe installers are not hosted here. You must download the following installers directly from official Microsoft sources and place them in your \Source\ folder:
 
-dotnet-core-uninstall.msi from: https://github.com/dotnet/cli-lab/releases
+* dotnet-core-uninstall.msi from: https://github.com/dotnet/cli-lab/releases
 
-windowsdesktop-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us/download
+* windowsdesktop-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us/download
 
-dotnet-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us/download
+* dotnet-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us/download
 
-aspnetcore-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us
+* aspnetcore-runtime-VERSION-win-x64.exe: Get the x64 installer from https://dotnet.microsoft.com/en-us
 
-dotnet_install.ps1: The script provided in this repository.
+* dotnet_install.ps1: The script provided in this repository.
 
-dotnet_detection.ps1: The script provided in this repository.
+* dotnet_detection.ps1: The script provided in this repository.
 
 ### If You download different versions from the 8.0.24, remember to amend the scripts provided!!
 
