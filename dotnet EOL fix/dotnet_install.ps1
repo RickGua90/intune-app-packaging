@@ -8,12 +8,12 @@
     LOGIC:
     1. Pre-check: If .NET isn't on the machine, the script exits to avoid unnecessary installs.
     2. Tooling: Installs the .NET Core Uninstall Tool if not present in Program Files (x86).
-    3. Update: Installs .NET 8.0.24 (Desktop, Runtime, and ASP.NET) to ensure the latest 
+    3. Update: Installs .NET 8.0.25 (Desktop, Runtime, and ASP.NET) to ensure the latest 
        version is active before scrubbing.
     4. Scrub: Uses the Uninstall Tool to purge all versions below 8.0.24 and all x86 versions.
-    5. Validation: Confirms only 8.0.24 remains active.
+    5. Validation: Confirms only 8.0.25 remains active.
 
-    # Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
+    # Remember to amend any 8.0.25 in the script to the specific version you are trying to deploy
 #>
 
 # 1. Check if .NET exists at all on the machine
@@ -37,13 +37,13 @@ if (!(Test-Path $toolPath)) {
     }
 }
 
-# 3. Install .NET 8.0.24 components first
-# Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
-Write-Host "Installing .NET 8.0.24 components..." -ForegroundColor Cyan
+# 3. Install .NET 8.0.25 components first
+# Remember to amend any 8.0.25 in the script to the specific version you are trying to deploy
+Write-Host "Installing .NET 8.0.25 components..." -ForegroundColor Cyan
 $installers = @(
-    "windowsdesktop-runtime-8.0.24-win-x64.exe",
-    "dotnet-runtime-8.0.24-win-x64.exe",
-    "aspnetcore-runtime-8.0.24-win-x64.exe"
+    "windowsdesktop-runtime-8.0.25-win-x64.exe",
+    "dotnet-runtime-8.0.25-win-x64.exe",
+    "aspnetcore-runtime-8.0.25-win-x64.exe"
 )
 
 foreach ($exe in $installers) {
@@ -56,16 +56,16 @@ foreach ($exe in $installers) {
 }
 
 # 4. Proceed with deleting old versions using the tool
-# Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
+# Remember to amend any 8.0.25 in the script to the specific version you are trying to deploy
 if (Test-Path $toolPath) {
-    Write-Host "Removing all versions below 8.0.24..." -ForegroundColor Yellow
+    Write-Host "Removing all versions below 8.0.25..." -ForegroundColor Yellow
     
-    # x64 Cleanup (removes everything below your new 8.0.24)
-    & $toolPath remove --all-below 8.0.24 --runtime --yes --force
-    & $toolPath remove --all-below 8.0.24 --windows-desktop-runtime --yes --force
-    & $toolPath remove --all-below 8.0.24 --aspnet-runtime --yes --force
-    & $toolPath remove --all-below 8.0.24 --hosting-bundle --yes --force
-    & $toolPath remove --all-below 8.0.24 --sdk --yes --force
+    # x64 Cleanup (removes everything below your new 8.0.25)
+    & $toolPath remove --all-below 8.0.25 --runtime --yes --force
+    & $toolPath remove --all-below 8.0.25 --windows-desktop-runtime --yes --force
+    & $toolPath remove --all-below 8.0.25 --aspnet-runtime --yes --force
+    & $toolPath remove --all-below 8.0.25 --hosting-bundle --yes --force
+    & $toolPath remove --all-below 8.0.25 --sdk --yes --force
     
     # x86 Cleanup (clears x86 entirely)
     & $toolPath remove --all --x86 --runtime --yes --force
@@ -76,10 +76,10 @@ if (Test-Path $toolPath) {
 }
 
 # 5. Final verification
-# Remember to amend any 8.0.24 in the script to the specific version you are trying to deploy
-$remaining = & dotnet --list-runtimes 2>$null | Where-Object { $_ -notlike "*8.0.24*" }
+# Remember to amend any 8.0.25 in the script to the specific version you are trying to deploy
+$remaining = & dotnet --list-runtimes 2>$null | Where-Object { $_ -notlike "*8.0.25*" }
 if (!$remaining) {
-    Write-Host "dotnet 8.0.24 is the only version left" -ForegroundColor Green
+    Write-Host "dotnet 8.0.25 is the only version left" -ForegroundColor Green
     exit 0
 } else {
     Write-Host "Some older versions might still be present." -ForegroundColor Yellow
