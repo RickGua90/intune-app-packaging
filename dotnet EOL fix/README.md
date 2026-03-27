@@ -1,7 +1,7 @@
 # .NET 8 Migration & EOL removal
 
 ### **Overview**
-In an enterprise environment, managing **.NET Runtimes** is a significant security and infrastructure challenge. Older, unpatched versions often linger on endpoints, increasing the attack surface. This project provides a comprehensive **Win32 App (IntuneWin)** solution to deploy **.NET 8.0.24** while proactively "scrubbing" all obsolete and vulnerable versions from the system.
+In an enterprise environment, managing **.NET Runtimes** is a significant security and infrastructure challenge. Older, unpatched versions often linger on endpoints, increasing the attack surface. This project provides a comprehensive **Win32 App (IntuneWin)** solution to deploy **.NET 8.0.25** while proactively "scrubbing" all obsolete and vulnerable versions from the system.
 
 ### **The Packaging Framework**
 To ensure consistent, repeatable builds, this project utilizes a structured local environment on the packaging workstation. This setup allows for clean version control and ensures all dependencies are bundled correctly.
@@ -13,6 +13,7 @@ To ensure consistent, repeatable builds, this project utilizes a structured loca
 
 ### **Source Folder Requirements**
 Due to GitHub's 25MB file limit, the .exe installers are not hosted here. You must download the following installers directly from official Microsoft sources and place them in your \Source\ folder:
+(remember 'Version' will be different based on the .exe you downloaded)
 
 * dotnet-core-uninstall.msi from: https://github.com/dotnet/cli-lab/releases
 
@@ -26,7 +27,7 @@ Due to GitHub's 25MB file limit, the .exe installers are not hosted here. You mu
 
 * dotnet_detection.ps1: The script provided in this repository.
 
-### If You download different versions from the 8.0.24, remember to amend the scripts provided!!
+### If You download different versions from the 8.0.25, remember to amend the scripts provided!!
 
 ### **Key Features**
 * **Self-Contained Remediation**: The package bundles the **.NET Core Uninstall Tool (MSI)**, allowing the script to perform deep-cleaning without requiring external downloads during the installation phase.
@@ -35,7 +36,7 @@ Due to GitHub's 25MB file limit, the .exe installers are not hosted here. You mu
 * **Zero-Downtime Logic**: The script is designed to install the secure version **before** removing old ones, preventing application crashes or missing dependency errors during the migration.
 
 ### **How to Build the Package**
-Update the $TargetVersion variable at the top of the .ps1 scripts to match your downloaded files (e.g., 8.0.24).
+Update the $TargetVersion variable at the top of the .ps1 scripts to match your downloaded files (e.g., 8.0.25).
 
 To replicate this deployment, place all installers and the script in your `Source` folder and execute the following command from the root directory:
 
