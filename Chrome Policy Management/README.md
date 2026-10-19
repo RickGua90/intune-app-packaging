@@ -36,7 +36,7 @@ Once the status shows as **Available**, you can create a new Configuration Profi
 ## Testing & Validation
 Before a global rollout, validate the deployment using a dedicated testing group. For detailed instructions on establishing a secure testing environment and managing groups in Intune, refer to the following documentation:
 
-**Guide: Create or Delete a Group for Testing** https://github.com/RickGua90/How_To/blob/main/Create_or_delete_a_group_in_Intune.pdf
+**Guide: Create or Delete a Group for Testing** https://github.com/RickGua90/How_To_Do_It
 
 ---
 
