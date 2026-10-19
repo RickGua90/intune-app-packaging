@@ -49,6 +49,6 @@ To replicate this deployment, place the RemoteUpdateManager.exe and the AdobeSec
 ### **Deployment & Testing**
 Before deploying these scripts to your entire fleet, it is strongly recommended to use a dedicated Testing Group to validate the results.
 
-* For a step-by-step guide on how to set up a group, please refer to my documentation here: https://github.com/RickGua90/How_To/blob/7aa316a7a7313245b0006747091482029fab9251/Create_or_delete_a_group_in_Intune.pdf
+* For a step-by-step guide on how to set up a group, please refer to my documentation here: https://github.com/RickGua90/How_To_Do_It
 
-* For a step-by-step guide on how to Create/Edit a WinApp32 in Intune, please refer to my documentation here: https://github.com/RickGua90/How_To/blob/main/HowtoCreateEditaWinApp32inIntune.pdf
+* For a step-by-step guide on how to Create/Edit a WinApp32 in Intune, please refer to my documentation here: https://github.com/RickGua90/How_To_Do_It
